@@ -33,12 +33,12 @@ COPY framework ./framework
 COPY tests ./tests
 COPY pytest.ini .
 
-# Installing JENKINS
-RUN apt-get install openjdk-8-jdk
-RUN $ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add
-RUN sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
-RUN apt update
-RUN apt install jenkins 
+# # Installing JENKINS
+# RUN apt-get install openjdk-8-jdk
+# RUN $ wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add
+# RUN sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+# RUN apt update
+# RUN apt install jenkins 
 
 # NANO
 RUN apt-get update
