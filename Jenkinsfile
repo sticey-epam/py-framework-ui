@@ -1,21 +1,15 @@
-// Jenkinsfile (Declarative Pipeline)
 pipeline {
-    agent { dockerfile true }
+    agent {
+        label 'master'
+    }
+
     stages {
-        stage('test') {
+        stage("Create docker image") {
             steps {
-                echo 'Start testing everything.'
-                sh 'pytest'
+                echo "BUILDING THE FUCKING DOCKER IMAGE"
+                sh "docker build -t framework ."
+                sh "docker run framework pytest -s -v tests/ "
             }
         }
     }
 }
-
-// node {
-//     checkout scm
-//     def testImage = docker.build("automation") 
-
-//     testImage.inside {
-//         sh 'pytest'
-//     }
-// }
