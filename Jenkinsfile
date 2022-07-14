@@ -1,10 +1,6 @@
 pipeline {
-    
-    agent { 
-        any {
-             args '-e RUN_HEADLESS=$RUN_HEADLESS'
-        }
-    }
+
+    agent any
 
     environment {
         RUN_HEADLESS = 'True' 
