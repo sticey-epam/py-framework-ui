@@ -8,7 +8,7 @@ It should pass first time.
 ### Via CLI
 
 To run all the tasks, it's advisable to do that via the command line. This can be done via the following command
-from the `kseniya-test-framework` folder:
+from the `py-framework-ui` folder:
 
 ```shell
 poetry shell
@@ -31,16 +31,11 @@ Before completing the below steps make sure that Jenkins user has access to inte
 sudo usermod -a -G docker jenkins
 grep docker /etc/group
 ```
-The output should be something like this 
-```
-docker:x:1001:<YOUR_PROFILE_NAME>,jenkins
-```
+The output should be something like this `docker:x:1001:<YOUR_PROFILE_NAME>,jenkins`
+
 
 After that you are ready to go further!
-Start jenkins 
-```
-sudo service jenkins start
-```
+Start jenkins `sudo service jenkins start`
 
 1. **Login to Jenkins via http://localhost:8080/**
 2. **Click "New Item"**
@@ -54,7 +49,7 @@ sudo service jenkins start
 10. **Click "Save" and then run the build.**
 
 
-### Expected successful pytest report
+### Expected successful pytest report if you run the test suite locally
 ```
 =================================================================== test session starts ===================================================================
 platform linux -- Python 3.9.7, pytest-7.1.2, pluggy-1.0.0 -- /home/sticey/.pyenv/versions/3.9.7/bin/python
