@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     environment {
-        RUN_HEADLESS = 'True' 
+        RUN_HEADLESS = '-e RUN_HEADLESS=True' 
     }
 
     //-e RUN_HEADLESS=True
@@ -14,8 +14,7 @@ pipeline {
 
                 sh 'docker build -t framework .'
                 sh 'env'
-                sh 'docker exec framework env'
-                sh 'docker run framework pytest -s -v tests/'
+                sh 'docker run $RUN_HEADLESS framework pytest -s -v tests/'
                 sh 'docker container prune -f'
             }
         }
