@@ -23,7 +23,7 @@ def get_chrome_options():
     chrome_options.add_argument("--start-maximized")
     chrome_options.add_argument("--disable-setuid-sandbox")
     
-    if os.environ['RUN_HEADLESS'] == 'True':
+    if os.environ['RUN_HEADLESS'] == "True":
         chrome_options.add_argument("--headless")
 
     return chrome_options
