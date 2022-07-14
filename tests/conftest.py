@@ -1,3 +1,4 @@
+import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import ChromiumOptions
@@ -10,9 +11,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 def get_chrome_options():
 
     chrome_options = ChromiumOptions()
-    chrome_options.add_argument("--headless")
+    
     chrome_options.add_experimental_option("w3c", True)
     chrome_options.add_argument("--no-sandbox")
+    # chrome_options.add_argument("--headless")
     chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--window-size=1920,1480")
     chrome_options.add_argument("--ignore-certificate-errors")
@@ -20,6 +22,9 @@ def get_chrome_options():
     # chrome_options.add_argument("--allow-insecure-localhost")
     chrome_options.add_argument("--start-maximized")
     chrome_options.add_argument("--disable-setuid-sandbox")
+    
+    if os.environ['RUN_HEADLESS'] == True:
+        chrome_options.add_argument("--headless")
 
     return chrome_options
 
