@@ -23,6 +23,36 @@ To run the tests inside a container using the image inside root folder of this r
 docker build . -t  jenkins-docker 
 docker run jenkins-docker pytest -s -v tests/"
 ```
+
+### Via Jenkins & Docker
+
+Before completing the below steps make sure that Jenkins user has access to interaction with Docker. Enter the following command in your CLI:
+```
+sudo usermod -a -G docker jenkins
+grep docker /etc/group
+```
+The output should be something like this *docker:x:1001:<YOUR_PROFILE_NAME>,jenkins*
+
+After that you are ready to go further!
+
+
+Start jenkins 
+```
+sudo service jenkins start
+```
+1. Login to Jenkins via http://localhost:8080/
+2. Click "New Item"
+3. Fill in the name of the job, select Pipeline option and proceed
+4. In **Pipeline** section select "Pipeline script from SCM" option
+5. In SCM dropdown select GIT.
+6. Repository URL, insert https://github.com/sticey-epam/py-framework-ui
+7. Leave "None" option in credentials as the repository is public
+8. In "Branch Specifier" change 'master' value to 'main'
+9. Make sure that script path has value "Jenkinsfile"
+10. Click "Save" and then run the build.
+
+
+
 ### Expected successful pytest report
 ```
 =================================================================== test session starts ===================================================================
