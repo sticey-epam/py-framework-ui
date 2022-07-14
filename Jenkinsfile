@@ -1,16 +1,16 @@
 pipeline {
-    agent any 
-    // { 
-    //     any {
-    //          args '-e RUN_HEADLESS=$RUN_HEADLESS'
-    //     }
-    // }
+    
+    agent { 
+        any {
+             args '-e RUN_HEADLESS=$RUN_HEADLESS'
+        }
+    }
 
     environment {
         RUN_HEADLESS = 'True' 
     }
 
-//-e RUN_HEADLESS=True
+    //-e RUN_HEADLESS=True
     stages {
         stage("Create docker image and run tests") {
             steps {
