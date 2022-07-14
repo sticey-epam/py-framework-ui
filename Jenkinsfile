@@ -9,7 +9,7 @@ pipeline {
                 echo "BUILDING THE FUCKING DOCKER IMAGE"
                 sh "docker build -t framework ."
                 sh "docker run framework pytest -s -v tests/ "
-                sh "docker rm framework"
+                sh "docker container prune"
             }
         }
     }
