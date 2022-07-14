@@ -11,9 +11,9 @@ def get_chrome_options():
 
     chrome_options = ChromiumOptions()
     chrome_options.add_argument("--headless")
-    # chrome_options.add_experimental_option("w3c", True)
+    chrome_options.add_experimental_option("w3c", True)
     chrome_options.add_argument("--no-sandbox")
-    # chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-dev-shm-usage")
     # chrome_options.add_argument("--window-size=1920,1480")
     chrome_options.add_argument("--ignore-certificate-errors")
     # chrome_options.add_argument("--allow-running-insecure-content")

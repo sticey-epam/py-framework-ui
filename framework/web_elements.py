@@ -20,7 +20,6 @@ class WebPage(SeleniumBase):
         return self._SeleniumBase__find_if_visible(find_by, locator)
 
     def find_elements(self, find_by, locator) -> List[WebElement]:
-        # return self.finds_is_visible("xpath", self.xpath)
         return self._SeleniumBase__find_are_visible(find_by, locator)
 
     def element_is_present(self, find_by: str, locator: str) -> WebElement:
