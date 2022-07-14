@@ -10,11 +10,11 @@ pipeline {
     stages {
         stage("Create docker image and run tests") {
             steps {
-                echo "BUILDING THE DOCKER IMAGE"
-                sh "docker build -t framework ."
-                sh "env"
-                sh "docker run framework pytest -s -v tests/"
-                sh "docker container prune -f"
+                echo 'BUILDING THE DOCKER IMAGE'
+                sh 'docker build -t framework .'
+                sh 'env'
+                sh 'docker run framework pytest -s -v tests/'
+                sh 'docker container prune -f'
             }
         }
     }
