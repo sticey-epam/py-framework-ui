@@ -10,6 +10,7 @@ pipeline {
                 sh "docker build -t framework ."
                 sh "docker run framework pytest -s -v tests/ "
                 sh "docker container prune"
+                sh "y"
             }
         }
     }
