@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        RUN_HEADLESS = 'true'
+        RUN_HEADLESS = 'True'
     }
 
     stages {
@@ -10,7 +10,7 @@ pipeline {
             steps {
                 echo "BUILDING THE DOCKER IMAGE"
                 sh "docker build -t framework ."
-                sh "docker run --env RUN_HEADLESS=true framework pytest -s -v tests/"
+                sh "docker run --env RUN_HEADLESS=True framework pytest -s -v tests/"
                 sh "docker container prune -f"
             }
         }
