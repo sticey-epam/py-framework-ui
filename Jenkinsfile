@@ -5,6 +5,10 @@ pipeline {
         }
     }
 
+    environment {
+        RUN_HEADLESS = 'True' 
+    }
+
     stages {
         stage("Create docker image and run tests") {
             steps {
