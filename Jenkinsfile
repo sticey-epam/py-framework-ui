@@ -13,8 +13,7 @@ pipeline {
 
                 // sh 'docker build -t framework .'
                 sh 'env'
-                sh 'docker run $RUN_HEADLESS framework pytest -s -v tests/'
-                sh 'docker container prune -f'
+                sh 'pytest -s -v tests/'
             }
         }
     }
