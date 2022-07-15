@@ -10,7 +10,8 @@ pipeline {
         stage("Create docker image and run tests") {
             steps {
                 sh 'env'
-                sh 'poetry shell'
+                sh 'ls -a'
+                sh 'poetry --version'
                 sh 'pytest -s -v tests/'
             }
         }
