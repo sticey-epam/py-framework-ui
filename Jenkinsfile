@@ -9,8 +9,6 @@ pipeline {
     stages {
         stage("Create docker image and run tests") {
             steps {
-                echo 'BUILDING THE DOCKER IMAGE'
-
                 sh 'env'
                 sh 'pytest -s -v tests/'
             }
