@@ -2,6 +2,7 @@ import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import ChromiumOptions
+from selenium.webdriver.chrome.service import Service as ChromeService
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.support.ui import WebDriverWait
 from webdriver_manager.chrome import ChromeDriverManager
@@ -34,8 +35,9 @@ def get_webdriver(get_chrome_options):
 
     chrome_options = get_chrome_options
     # chromedriver = Service("/usr/local/bin/chromedriver")
-    chromedriver = Service(executable_path=ChromeDriverManager().install())
-    driver = webdriver.Chrome(service=chromedriver, options=chrome_options)
+    # chromedriver = Service(executable_path=ChromeDriverManager().install())
+    # driver = webdriver.Chrome(service=chromedriver, options=chrome_options)
+    driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=chrome_options)
     return driver
 
 
