@@ -1,6 +1,6 @@
 pipeline {
 
-    agent {docker true}
+    agent {dockerfile true}
 
     environment {
         RUN_HEADLESS = 'True' 
