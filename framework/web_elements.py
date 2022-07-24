@@ -4,6 +4,7 @@ from selenium import webdriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.support.ui import Select
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.color import Color
 
 from framework.utils import SeleniumBase
 
@@ -54,6 +55,12 @@ class WebPage(SeleniumBase):
     def deselect(self, find_by: str, locator: str, value: str) -> WebElement:
         element = Select(self._SeleniumBase__find_if_visible(find_by, locator))
         return element.deselect_by_visible_text(value)
+    
+    def get_background_colour(self, find_by: str, locator: str):
+        """Find the colour of an element to compare it."""
+        element = self._SeleniumBase__find_if_visible(find_by, locator)
+        rgb_colour = element.value_of_css_property('background-color')
+        return Color.from_string(rgb_colour).hex
 
     
     

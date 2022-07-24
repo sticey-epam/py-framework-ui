@@ -64,7 +64,7 @@ class SeleniumBase:
         return [element.text for element in elements]
 
     def __get_element_by_text(self, elements: List[WebElement], name: str) -> WebElement:
-        """The input should we a list of WebElements, from which we return a single WebElement found by it's name"""
+        """The input should return a list of WebElements, from which we return a single WebElement found by it's name"""
         name = name.lower()
         return [element for element in elements if element.text.lower() == name][0]
 
@@ -85,4 +85,3 @@ class SeleniumBase:
         return self.__wait.until(
             ec.element_to_be_clickable((self.__get_selenium_by(find_by), locator)), locator_name
             )
-        
